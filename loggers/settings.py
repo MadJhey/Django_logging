@@ -122,6 +122,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_FILE_PATH = 'email-messages'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -155,5 +156,11 @@ LOGGING = {
             'level': 'DEBUG',
             'handlers': ['console', 'file']
         }
+    },
+    'mail_admins': {
+        'level': 'DEBUG',
+        'class': 'django.utils.log.AdminEmailHandler',
+        'include_html': True,
+        'email_backend': 'django.core.mail.backends.filebased.EmailBackend',
     }
 }
